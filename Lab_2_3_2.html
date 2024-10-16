@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контакти - Форма зворотного зв'язку</title>
+</head>
+<body>
+    <header>
+        <h1>Контакти</h1>
+        <nav>
+            <ul>
+                <li><a href="Lab_1_3_Personal_page.html">Головна</a></li>
+                <li><a href="Lab_1_3_About_me.html">Про мене</a></li>
+                <li><a href="Lab_1_3_My_favorites.html">Улюблені книги/фільми</a></li>
+                <li><a href="Lab_1_3_My_contact.html">Контакти</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Форма зворотного зв'язку</h2>
+        <form id="contactForm">
+            <label for="name">Ім'я:</label>
+            <input type="text" id="name" name="name" required><br><br>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required><br><br>
+
+            <label for="subject">Тема:</label>
+            <input type="text" id="subject" name="subject" required><br><br>
+
+            <label for="message">Повідомлення:</label><br>
+            <textarea id="message" name="message" rows="4" cols="50" required></textarea><br><br>
+
+            <input type="submit" value="Відправити">
+        </form>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 </p>
+    </footer>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            var name = document.getElementById('name').value;
+            var email = document.getElementById('email').value;
+            var subject = document.getElementById('subject').value;
+            var message = document.getElementById('message').value;
+            
+            var mailtoLink = 'mailto:your.email@example.com' +
+                             '?subject=' + encodeURIComponent(subject) +
+                             '&body=' + encodeURIComponent('Ім\'я: ' + name + '\nEmail: ' + email + '\n\nПовідомлення:\n' + message);
+            
+            window.location.href = mailtoLink;
+        });
+    </script>
+</body>
+</html>
